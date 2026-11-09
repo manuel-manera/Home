@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio personale di Manuel Manera, studente dell'I.I.S. Galileo Galilei di Crema.">
+    <title>Manuel Manera | Portfolio</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --blue: #0566c8;
+            --blue-dark: #0755a5;
+            --text: #172536;
+            --muted: #657386;
+            --line: #e4eaf1;
+            --surface: #ffffff;
+            --background: #f4f7fb;
+        }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 20px; }
+        body {
+            margin: 0;
+            background: var(--background);
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .topbar {
+            min-height: 42px;
+            padding: 0 5.5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            background: #0755a5;
+            color: white;
+            font-size: 13px;
+        }
+        .topbar span:last-child { opacity: .9; }
+        .masthead {
+            padding: 25px 5.5%;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            background: var(--blue);
+            color: white;
+        }
+        .mark {
+            width: 62px;
+            height: 62px;
+            display: grid;
+            place-items: center;
+            flex: 0 0 auto;
+            border: 2px solid rgba(255,255,255,.9);
+            border-radius: 50%;
+            font-size: 34px;
+            font-weight: 700;
+        }
+        .person-name { margin: 0 0 5px; font-size: clamp(22px, 3vw, 30px); }
+        .person-subtitle { margin: 0; font-size: 14px; opacity: .95; }
+        nav {
+            min-height: 58px;
+            padding: 0 5.5%;
+            display: flex;
+            align-items: center;
+            gap: 34px;
+            background: var(--blue);
+            border-top: 1px solid rgba(255,255,255,.2);
+            color: white;
+        }
+        nav a { color: white; text-decoration: none; font-weight: 600; }
+        nav a:hover { text-decoration: underline; }
+        main { width: min(1320px, 89%); margin: 38px auto 64px; }
+        .intro { margin-bottom: 28px; }
+        .eyebrow {
+            margin: 0 0 9px;
+            color: var(--blue);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+        h1 { margin: 0 0 9px; font-size: clamp(27px, 4vw, 36px); }
+        .intro p:last-child { margin: 0; color: var(--muted); line-height: 1.7; max-width: 850px; }
+        .section-heading { margin: 38px 0 18px; font-size: 23px; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+        .card {
+            min-height: 172px;
+            padding: 23px;
+            display: flex;
+            flex-direction: column;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-top: 4px solid var(--blue);
+            box-shadow: 0 5px 20px rgba(25,55,90,.06);
+        }
+        .number { margin: 0 0 13px; color: var(--blue); font-size: 12px; font-weight: 700; }
+        .card h3 { margin: 0 0 9px; font-size: 19px; line-height: 1.3; }
+        .card p { margin: 0 0 18px; color: var(--muted); font-size: 14px; line-height: 1.5; }
+        .status { margin-top: auto; color: var(--blue); font-size: 12px; font-weight: 700; }
+        .work-card {
+            padding: 26px;
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 24px;
+            background: white;
+            border: 1px solid var(--line);
+            border-left: 4px solid var(--blue);
+            box-shadow: 0 5px 20px rgba(25,55,90,.06);
+        }
+        .work-index { color: var(--blue); font-size: 13px; font-weight: 700; }
+        .work-card h3 { margin: 0 0 9px; font-size: 21px; }
+        .work-card p { margin: 0 0 18px; color: var(--muted); line-height: 1.6; }
+        .button {
+            min-height: 42px;
+            padding: 10px 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--blue);
+            border-radius: 3px;
+            color: var(--blue);
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background .15s, color .15s;
+        }
+        .button.primary { background: var(--blue); color: white; }
+        .button:hover { background: var(--blue-dark); border-color: var(--blue-dark); color: white; }
+        .exercise-list {
+            margin-top: 18px;
+            padding: 20px 23px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            background: #fff;
+            border: 1px solid var(--line);
+        }
+        .exercise-list span {
+            padding: 8px 11px;
+            background: #edf4fc;
+            color: #0755a5;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        footer {
+            padding: 22px 5.5%;
+            background: #064f98;
+            color: white;
+            text-align: center;
+            font-size: 13px;
+        }
+        @media (max-width: 900px) {
+            .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 600px) {
+            .topbar { padding: 0 5%; font-size: 11px; }
+            .masthead { padding: 20px 5%; }
+            .mark { width: 48px; height: 48px; font-size: 27px; }
+            .person-subtitle { font-size: 12px; }
+            nav { min-height: 50px; padding: 0 5%; gap: 23px; font-size: 14px; }
+            main { width: 90%; margin-top: 28px; }
+            .grid { grid-template-columns: 1fr; gap: 15px; }
+            .card { min-height: 0; }
+            .work-card { grid-template-columns: 1fr; gap: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="topbar">
+            <span>I.I.S. Galileo Galilei · Crema</span>
+            <span>Portfolio personale</span>
+        </div>
+        <div class="masthead">
+            <div class="mark" aria-hidden="true">M</div>
+            <div>
+                <p class="person-name"><strong>Manuel Manera</strong></p>
+                <p class="person-subtitle">Studente del Itis Informatica · Classe 2IA</p>
+            </div>
+        </div>
+        <nav aria-label="Navigazione principale">
+            <a href="#home">Home</a>
+            <a href="#argomenti">Argomenti</a>
+            <a href="#lavori">Lavori</a>
+        </nav>
+    </header>
+    <main id="home">
+        <section class="intro">
+            <p class="eyebrow">Informatica · Tecnologia · Progetti</p>
+            <h1>Ciao, sono Manuel.</h1>
+            <p>Sono uno studente dell'I.I.S. Galileo Galilei di Crema e frequento la classe 2IA del Itis Informatica. Mi appassionano l'informatica, la tecnologia e la programmazione: mi piace sperimentare, imparare nuovi strumenti e trasformare le idee in progetti concreti. Mi interessano anche la parte tecnica del mondo del teatro ed eventi, in particolare audio e luci.</p>
+        </section>
+
+        <section id="argomenti" aria-labelledby="topics-heading">
+            <h2 class="section-heading" id="topics-heading">Argomenti</h2>
+            <div class="grid">
+                <article class="card">
+                    <p class="number">ARGOMENTO 01</p>
+                    <h3>HTML</h3>
+                    <p>La struttura delle pagine web e l'organizzazione dei contenuti.</p>
+                    <span class="status">In corso</span>
+                </article>
+                <article class="card">
+                    <p class="number">ARGOMENTO 02</p>
+                    <h3>CSS</h3>
+                    <p>Stili, colori, layout e impaginazione dei siti web.</p>
+                    <span class="status">In corso</span>
+                </article>
+                <article class="card">
+                    <p class="number">ARGOMENTO 03</p>
+                    <h3>Flowgorythm</h3>
+                    <p>Progettazione e rappresentazione grafica degli algoritmi tramite diagrammi di flusso, utilizzando variabili, condizioni, cicli e operazioni.</p>
+                    <span class="status">Argomento ancora da svolgere</span>
+                </article>
+            </div>
+        </section>
+
+        <section id="lavori" aria-labelledby="works-heading">
+            <h2 class="section-heading" id="works-heading">Lavori</h2>
+            <article class="work-card">
+                <div class="work-index">PROGETTO 01<br>HTML</div>
+                <div>
+                    <h3>Raccolta esercizi HTML</h3>
+                    <p>Una raccolta di esercizi realizzati durante il percorso scolastico. Comprende pagine dedicate alla musica, alla scuola, alla ristorazione e alla tecnologia.</p>
+                    <a class="button primary" href="https://manuel-manera.github.io/htmlhomework/#home" target="_blank" rel="noopener">Apri la raccolta</a>
+                </div>
+            </article>
+            <div class="exercise-list" aria-label="Esercizi presenti nella raccolta">
+                <span>Ray Of Solar</span>
+                <span>Eric Prydz</span>
+                <span>Eiffel 65</span>
+                <span>Orario scolastico</span>
+                <span>Istituto Galilei</span>
+                <span>Ristorante Da Miro</span>
+                <span>Ristorante Marechiaro</span>
+                <span>Swedish House Mafia</span>
+                <span>In And Out Of Love</span>
+                <span>Tabella AMD Radeon RX 6000</span>
+            </div>
+        </section>
+    </main>
+    <footer>Manuel Manera · I.I.S. Galileo Galilei di Crema</footer>
+</body>
+</html>
