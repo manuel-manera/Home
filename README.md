@@ -1,1 +1,4 @@
-# Portfolio personale – Manuel Manera\n\nSito statico HTML/CSS pubblicabile con GitHub Pages.\n\nCarica `index.html` nella root della nuova repository e abilita GitHub Pages dalle impostazioni.\n
+# Portfolio di:
+- Manuel Manera
+## Cosa contiene?
+- raccolta di tutti gli esercii fatti fin'ora in informatica
